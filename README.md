@@ -1,6 +1,10 @@
+![Crystal Ball](https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/joypixels/239/crystal-ball_1f52e.png)
 # Fortune Teller Starter
 
-This code is a starting point for making a fortune teller via Arduino.
+Arduino fortune teller simple code starting point.
+
+- 20x4 LCD display screen
+- Coin slot trigger
 
 Examples:
 - [Animated Fortune Teller with Firebase data collection](https://github.com/doublejosh/FortuneTeller)
