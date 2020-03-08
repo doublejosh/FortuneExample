@@ -3,25 +3,23 @@
 // HARDWARE...
 
 const int TRIGGER_PIN = D8,
-ANALOG_PIN = A0;
+					 ANALOG_PIN = A0;
 
 const int displayRS = D5,
-displayEN = D0,
-displayD4 = D1,
-displayD5 = D2,
-displayD6 = D3,
-displayD7 = D4;
+					displayEN = D0,
+					displayD4 = D1,
+					displayD5 = D2,
+					displayD6 = D3,
+					displayD7 = D4;
 LiquidCrystal lcd(
-	displayRS, displayEN, displayD4,
-	displayD5, displayD6, displayD7
+	displayRS, displayEN, displayD4, displayD5, displayD6, displayD7
 );
 #define WIDTH 20
 #define HEIGHT 4
 
 // APP GLOBALS...
 
-const int DELAY_MSG = 4000,
-    		DELAY_QUICK = 250,
+const int DELAY_QUICK = 250,
       DELAY_FORTUNE = 9000;
 
 const char FORTUNES[][HEIGHT][WIDTH+1] = {{
