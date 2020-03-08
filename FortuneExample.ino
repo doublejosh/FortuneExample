@@ -21,7 +21,8 @@ LiquidCrystal lcd(
 // APP GLOBALS...
 
 const int DELAY_QUICK = 250,
-        DELAY_FORTUNE = 9000;
+        DELAY_FORTUNE = 9000,
+         THINK_BLINKS = 10;
 
 const char FORTUNES[][HEIGHT][WIDTH+1] = {{
     "A hunch is just     ",
@@ -94,7 +95,7 @@ void loop(void) {
 
 void showFortune(int f) {
 	// Pretend to compute the fortune.
-	for (int s=0; s < 10; s++) {
+	for (int s=0; s < THINK_BLINKS; s++) {
 		paint(MESSAGES[THINKING], DELAY_QUICK);
 		lcd.clear();
 		delay(DELAY_QUICK);
