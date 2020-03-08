@@ -3,14 +3,14 @@
 // HARDWARE...
 
 const int TRIGGER_PIN = D8,
-					 ANALOG_PIN = A0;
+          ANALOG_PIN = A0;
 
 const int displayRS = D5,
-					displayEN = D0,
-					displayD4 = D1,
-					displayD5 = D2,
-					displayD6 = D3,
-					displayD7 = D4;
+          displayEN = D0,
+          displayD4 = D1,
+          displayD5 = D2,
+          displayD6 = D3,
+          displayD7 = D4;
 LiquidCrystal lcd(
 	displayRS, displayEN, displayD4, displayD5, displayD6, displayD7
 );
@@ -26,42 +26,42 @@ const char FORTUNES[][HEIGHT][WIDTH+1] = {{
     "A hunch is just     ",
     "creativity trying to",
     "tell you something. ",
-		"                    "
+    "                    "
   }, {
-		"                    ",
-		"A soft voice may be ",
+    "                    ",
+    "A soft voice may be ",
 		"awfully persuasive. ",
 		"                    "
   }, {
-		"                    ",
-		"Adventure can be    ",
-		"real happiness.     ",
-		"                    ",
+    "                    ",
+    "Adventure can be    ",
+    "real happiness.     ",
+    "                    ",
 	}, {
-		"At the touch of love",
-		"everyone becomes a  ",
-		"poet.               ",
-		"                    "
+    "At the touch of love",
+    "everyone becomes a  ",
+    "poet.               ",
+    "                    "
 	}, {
-		"A friend is a       ",
-		"present you give    ",
-		"yourself.           ",
-		"                    "
+    "A friend is a       ",
+    "present you give    ",
+    "yourself.           ",
+    "                    "
 	}};
 const int numFortunes = sizeof(FORTUNES) / sizeof(FORTUNES[0]);
 
 #define COIN_PLEASE 0
 #define THINKING 1
 const char MESSAGES[][HEIGHT][WIDTH+1] = {{
-		"*                  *",
-		"  Feed me quarters  ",
-		"  get your fortune  ",
-		"*                  *"
+    "*                  *",
+    "  Feed me quarters  ",
+    "  get your fortune  ",
+    "*                  *"
 	}, {
-		"                    ",
-		"  * * THINKING * *  ",
-		"                    ",
-		"                    "
+    "                    ",
+    "  * * THINKING * *  ",
+    "                    ",
+    "                    "
 	}};
 
 // STANDARD...
