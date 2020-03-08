@@ -12,7 +12,8 @@ const int displayRS = D5,
           displayD6 = D3,
           displayD7 = D4;
 LiquidCrystal lcd(
-  displayRS, displayEN, displayD4, displayD5, displayD6, displayD7
+  displayRS, displayEN, displayD4,
+  displayD5, displayD6, displayD7
 );
 #define WIDTH 20
 #define HEIGHT 4
@@ -20,7 +21,7 @@ LiquidCrystal lcd(
 // APP GLOBALS...
 
 const int DELAY_QUICK = 250,
-      DELAY_FORTUNE = 9000;
+        DELAY_FORTUNE = 9000;
 
 const char FORTUNES[][HEIGHT][WIDTH+1] = {{
     "A hunch is just     ",
