@@ -1,89 +1,126 @@
 #include <LiquidCrystal.h>
 
-// Display screen pins.
-const int rs = D5,
-	en = D0,
-	d4 = D1,
-	d5 = D2,
-	d6 = D3,
-	d7 = D4;
-LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+// HARDWARE...
 
-// Use pin for coin trigger.
-const int TRIGGER_PIN = D6;
+const int TRIGGER_PIN = D8,
+ANALOG_PIN = A0;
 
-// List of fortunes.
-const int NUM_FORTUNES = 5;
-// Filling all characters for each 
-const String FORTUNES[][4] = {{
-    	"A hunch is just     ",
-    	"creativity trying to",
-    	"tell you something. "
-  	}, {
+const int displayRS = D5,
+displayEN = D0,
+displayD4 = D1,
+displayD5 = D2,
+displayD6 = D3,
+displayD7 = D4;
+LiquidCrystal lcd(
+	displayRS, displayEN, displayD4,
+	displayD5, displayD6, displayD7
+);
+#define WIDTH 20
+#define HEIGHT 4
+
+// APP GLOBALS...
+
+const int DELAY_MSG = 4000,
+    		DELAY_QUICK = 250,
+      DELAY_FORTUNE = 9000;
+
+const char FORTUNES[][HEIGHT][WIDTH+1] = {{
+    "A hunch is just     ",
+    "creativity trying to",
+    "tell you something. ",
+		"                    "
+  }, {
+		"                    ",
 		"A soft voice may be ",
-		"awfully persuasive. "
-  	}, {
+		"awfully persuasive. ",
+		"                    "
+  }, {
+		"                    ",
 		"Adventure can be    ",
-		"real happiness.     "
+		"real happiness.     ",
+		"                    ",
 	}, {
 		"At the touch of love",
 		"everyone becomes a  ",
-		"poet."
+		"poet.               ",
+		"                    "
 	}, {
 		"A friend is a       ",
 		"present you give    ",
-		"yourself.           "
+		"yourself.           ",
+		"                    "
+	}};
+const int numFortunes = sizeof(FORTUNES) / sizeof(FORTUNES[0]);
+
+#define COIN_PLEASE 0
+#define THINKING 1
+const char MESSAGES[][HEIGHT][WIDTH+1] = {{
+		"*                  *",
+		"  Feed me quarters  ",
+		"  get your fortune  ",
+		"*                  *"
+	}, {
+		"                    ",
+		"  * * THINKING * *  ",
+		"                    ",
+		"                    "
 	}};
 
-const int DELAY = 6000;
+// STANDARD...
 
 void setup(void) {
 	// Define screen size.
-	lcd.begin(20, 4);
+	lcd.begin(WIDTH, HEIGHT);
 	// Allows debug monitoring.
 	Serial.begin(115200);
 	// Enabled true random.
-	randomSeed(analogRead(0));
+	randomSeed(analogRead(ANALOG_PIN));
 	// Allow using trigger pin.
 	pinMode(TRIGGER_PIN, INPUT);
+	// Initial message.
+	paint(MESSAGES[COIN_PLEASE], 0);
 }
  
 void loop(void) {
 	const int trigger = digitalRead(TRIGGER_PIN);
-	Serial.print("TRIGGER: ");
-	Serial.println(trigger);
-
 	// When pin gets triggered, show a fortune.
 	if (trigger == HIGH) {
 		// Pick random fortune.
-		lcd.display();
-		showFortune(random(NUM_FORTUNES));
-	} else {
-		// Reset the display.
-		lcd.noDisplay();
-		lcd.clear();
+		int f = random(numFortunes);
+		showFortune(f);
 	}
 }
 
+// APPLICATION...
+
 void showFortune(int f) {
 	// Pretend to compute the fortune.
-	for (uint8_t s=0; s < 10; s++) {
-		lcd.setCursor(0, 1);
-		lcd.print("  * * THINKING * *  ");
-		delay(250);
+	for (int s=0; s < 10; s++) {
+		paint(MESSAGES[THINKING], DELAY_QUICK);
 		lcd.clear();
-		delay(250);
+		delay(DELAY_QUICK);
 	}
 
-	// Debugging.
+	// Output the fortune.
 	Serial.print("Printing fortune: ");
 	Serial.println(f);
+	paint(FORTUNES[f], DELAY_FORTUNE);
+	lcd.clear();
+	paint(MESSAGES[COIN_PLEASE], 0);
+}
 
-	// Print all lines of the fortune.
-	uint8_t lines = sizeof(FORTUNES[f]) / sizeof(FORTUNES[f][0]);
-	for (uint8_t i=0; i < lines; i++) {
+void paint (const char screen[HEIGHT][WIDTH+1], int wait) {
+	lcd.noDisplay();
+	lcd.clear();
+
+	// Loop through rows.
+	int lines = sizeof(screen);
+	for (int i = 0; i < lines; i++) {
+		// Start at first column.
 		lcd.setCursor(0, i);
-		lcd.print(FORTUNES[f][i]);
+		lcd.print(String(screen[i]));
 	}
-	delay(DELAY);
+
+	lcd.display();
+	delay(wait);
 }
