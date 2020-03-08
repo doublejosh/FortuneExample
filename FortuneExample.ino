@@ -30,8 +30,8 @@ const char FORTUNES[][HEIGHT][WIDTH+1] = {{
   }, {
     "                    ",
     "A soft voice may be ",
-		"awfully persuasive. ",
-		"                    "
+    "awfully persuasive. ",
+    "                    "
   }, {
     "                    ",
     "Adventure can be    ",
@@ -47,7 +47,7 @@ const char FORTUNES[][HEIGHT][WIDTH+1] = {{
     "present you give    ",
     "yourself.           ",
     "                    "
-	}};
+  }};
 const int numFortunes = sizeof(FORTUNES) / sizeof(FORTUNES[0]);
 
 #define COIN_PLEASE 0
