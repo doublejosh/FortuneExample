@@ -12,7 +12,7 @@ const int displayRS = D5,
           displayD6 = D3,
           displayD7 = D4;
 LiquidCrystal lcd(
-	displayRS, displayEN, displayD4, displayD5, displayD6, displayD7
+  displayRS, displayEN, displayD4, displayD5, displayD6, displayD7
 );
 #define WIDTH 20
 #define HEIGHT 4
@@ -37,12 +37,12 @@ const char FORTUNES[][HEIGHT][WIDTH+1] = {{
     "Adventure can be    ",
     "real happiness.     ",
     "                    ",
-	}, {
+  }, {
     "At the touch of love",
     "everyone becomes a  ",
     "poet.               ",
     "                    "
-	}, {
+  }, {
     "A friend is a       ",
     "present you give    ",
     "yourself.           ",
@@ -57,12 +57,12 @@ const char MESSAGES[][HEIGHT][WIDTH+1] = {{
     "  Feed me quarters  ",
     "  get your fortune  ",
     "*                  *"
-	}, {
+  }, {
     "                    ",
     "  * * THINKING * *  ",
     "                    ",
     "                    "
-	}};
+  }};
 
 // STANDARD...
 
