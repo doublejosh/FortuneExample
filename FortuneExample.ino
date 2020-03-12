@@ -1,4 +1,5 @@
 #include <LiquidCrystal.h>
+#include "content.h"
 
 // HARDWARE...
 
@@ -15,56 +16,15 @@ LiquidCrystal lcd(
   displayRS, displayEN, displayD4,
   displayD5, displayD6, displayD7
 );
-#define WIDTH 20
-#define HEIGHT 4
 
 // APP GLOBALS...
+
+#define WIDTH 20
+#define HEIGHT 4
 
 const int DELAY_QUICK = 250,
         DELAY_FORTUNE = 9000,
          THINK_BLINKS = 10;
-
-const char FORTUNES[][HEIGHT][WIDTH+1] = {{
-    "A hunch is just     ",
-    "creativity trying to",
-    "tell you something. ",
-    "                    "
-  }, {
-    "                    ",
-    "A soft voice may be ",
-    "awfully persuasive. ",
-    "                    "
-  }, {
-    "                    ",
-    "Adventure can be    ",
-    "real happiness.     ",
-    "                    ",
-  }, {
-    "At the touch of love",
-    "everyone becomes a  ",
-    "poet.               ",
-    "                    "
-  }, {
-    "A friend is a       ",
-    "present you give    ",
-    "yourself.           ",
-    "                    "
-  }};
-const int numFortunes = sizeof(FORTUNES) / sizeof(FORTUNES[0]);
-
-#define COIN_PLEASE 0
-#define THINKING 1
-const char MESSAGES[][HEIGHT][WIDTH+1] = {{
-    "*                  *",
-    "  Feed me quarters  ",
-    "  get your fortune  ",
-    "*                  *"
-  }, {
-    "                    ",
-    "  * * THINKING * *  ",
-    "                    ",
-    "                    "
-  }};
 
 // STANDARD...
 
