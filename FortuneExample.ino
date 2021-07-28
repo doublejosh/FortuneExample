@@ -1,21 +1,19 @@
-#include <LiquidCrystal.h>
+#include <Wire.h> 
+#include <LiquidCrystal_I2C.h>
+
+LiquidCrystal_I2C lcd(0x27,20,4);
+
 #include "content.h"
 
 // HARDWARE...
+// (Wemos D1 mini)
 
 const int TRIGGER_PIN = D8,
           ANALOG_PIN = A0;
 
-const int displayRS = D5,
-          displayEN = D0,
-          displayD4 = D1,
-          displayD5 = D2,
-          displayD6 = D3,
-          displayD7 = D4;
-LiquidCrystal lcd(
-  displayRS, displayEN, displayD4,
-  displayD5, displayD6, displayD7
-);
+// SCL - D1
+// SDA - D2
+// Trigger - 3v
 
 // APP GLOBALS...
 
@@ -29,10 +27,11 @@ const int DELAY_QUICK = 250,
 // STANDARD...
 
 void setup(void) {
-	// Define screen size.
-	lcd.begin(WIDTH, HEIGHT);
-	// Allows debug monitoring.
 	Serial.begin(115200);
+
+	lcd.init();
+	lcd.backlight();
+
 	// Enabled true random.
 	randomSeed(analogRead(ANALOG_PIN));
 	// Allow using trigger pin.
