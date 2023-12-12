@@ -5,6 +5,9 @@ LiquidCrystal_I2C lcd(0x27,20,4);
 
 #include "content.h"
 
+// HARDWARE...
+// (Wemos D1 mini)
+
 const int TRIGGER_PIN = 8, // D8 for Wemos
           ANALOG_PIN = A0;
 
@@ -70,7 +73,7 @@ void paint (const char screen[HEIGHT][WIDTH+1], int wait) {
 	lcd.clear();
 
 	// Loop through rows.
-	int lines = sizeof(screen);
+	int lines = HEIGHT;
 	for (int i = 0; i < lines; i++) {
 		// Start at first column.
 		lcd.setCursor(0, i);
