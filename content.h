@@ -16,20 +16,20 @@ const char MESSAGES[][HEIGHT][WIDTH+1] = {{
   }};
 
 const char FORTUNES[][HEIGHT][WIDTH+1] = {{
-    "A hunch is just     ",
-    "creativity trying to",
-    "tell you something. ",
+    "That hunch is right.",
+    "",
+    "Your deeper mind is ",
+    "worth listening to.  "
+  }, {
+    "                    ",
+    "Your gentle voice is",
+    "more persuasive.    ",
     "                    "
   }, {
     "                    ",
-    "A soft voice may be ",
-    "awfully persuasive. ",
-    "                    "
-  }, {
-    "                    ",
-    "Adventure can be    ",
-    "real happiness.     ",
-    "                    ",
+    "True adventure is   ",
+    "the happiness you   ",
+    "seek.               ",
   }, {
     "At the touch of love",
     "everyone becomes a  ",
