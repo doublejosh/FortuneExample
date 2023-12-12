@@ -5,14 +5,11 @@ LiquidCrystal_I2C lcd(0x27,20,4);
 
 #include "content.h"
 
-// HARDWARE...
-// (Wemos D1 mini)
-
 const int TRIGGER_PIN = 8, // D8 for Wemos
           ANALOG_PIN = A0;
 
-// SCL - D1
-// SDA - D2
+// SCL - (Uno: 5, Wemos: D1)
+// SDA - (Uno: 4, Wemos: D2)
 // Trigger - 3v
 
 // APP GLOBALS...
