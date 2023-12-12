@@ -17,7 +17,7 @@ const char MESSAGES[][HEIGHT][WIDTH+1] = {{
 
 const char FORTUNES[][HEIGHT][WIDTH+1] = {{
     "That hunch is right.",
-    "",
+    "                    ",
     "Your deeper mind is ",
     "worth listening to.  "
   }, {
@@ -29,7 +29,7 @@ const char FORTUNES[][HEIGHT][WIDTH+1] = {{
     "                    ",
     "True adventure is   ",
     "the happiness you   ",
-    "seek.               ",
+    "seek.               "
   }, {
     "At the touch of love",
     "everyone becomes a  ",
