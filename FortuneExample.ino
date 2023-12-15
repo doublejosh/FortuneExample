@@ -32,7 +32,7 @@ void setup(void) {
 	// Enabled true random.
 	randomSeed(analogRead(ANALOG_PIN));
 	// Allow using trigger pin.
-	pinMode(TRIGGER_PIN, INPUT);
+	pinMode(TRIGGER_PIN, INPUT_PULLUP);
 	// Initial message.
 	paint(MESSAGES[COIN_PLEASE], 0);
 }
@@ -40,7 +40,7 @@ void setup(void) {
 void loop(void) {
 	const int trigger = digitalRead(TRIGGER_PIN);
 	// When pin gets triggered, show a fortune.
-	if (trigger == HIGH) {
+	if (trigger == LOW) {
 		// Pick random fortune.
 		int f = random(numFortunes);
 		showFortune(f);
