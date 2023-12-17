@@ -5,7 +5,7 @@ LiquidCrystal_I2C lcd(0x27,20,4);
 
 #include "content.h"
 
-const int TRIGGER_PIN = 8, // D8 for Wemos
+const int TRIGGER_PIN = D8, // D8 for Wemos
           ANALOG_PIN = A0;
 
 // SCL - (Uno: 5, Wemos: D1)
@@ -32,7 +32,7 @@ void setup(void) {
 	// Enabled true random.
 	randomSeed(analogRead(ANALOG_PIN));
 	// Allow using trigger pin.
-	pinMode(TRIGGER_PIN, INPUT_PULLUP);
+	pinMode(TRIGGER_PIN, INPUT); // Uno: INPUT_PULLUP
 	// Initial message.
 	paint(MESSAGES[COIN_PLEASE], 0);
 }
@@ -40,7 +40,7 @@ void setup(void) {
 void loop(void) {
 	const int trigger = digitalRead(TRIGGER_PIN);
 	// When pin gets triggered, show a fortune.
-	if (trigger == LOW) {
+	if (trigger == HIGH) {
 		// Pick random fortune.
 		int f = random(numFortunes);
 		showFortune(f);
