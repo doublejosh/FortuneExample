@@ -15,30 +15,58 @@ const char MESSAGES[][HEIGHT][WIDTH+1] = {{
     "                    "
   }};
 
-const char FORTUNES[][HEIGHT][WIDTH+1] = {{
-    "That hunch is right.",
+const char FORTUNES[][HEIGHT][WIDTH+1] = {
+ {
+    "Absolutely... not.  ",
     "                    ",
-    "Your deeper mind is ",
-    "worth listening to. "
+    "Unless you bribe me ",
+    "with cookies.       "
   }, {
     "                    ",
-    "Your gentle voice is",
-    "more persuasive.    ",
+    "Yes, but only on    ",
+    "days that end in 'Y'",
     "                    "
   }, {
     "                    ",
-    "True adventure is   ",
-    "the happiness you   ",
-    "seek.               "
-  }, {
-    "At the touch of love",
-    "everyone becomes a  ",
-    "poet.               ",
+    "No, unless you're   ",
+    "a wizard.           ",
     "                    "
   }, {
-    "A friend is a       ",
-    "present you give    ",
-    "yourself.           ",
+    "                    ",
+    "Maybe. Ask your     ",
+    "coffee first.       ",
     "                    "
-  }};
+  }, {
+    "                    ",
+    "Sure, but only if   ",
+    "you do a little     ",
+    "dance first.        "
+  }, {
+    "                    ",
+    "                    ",
+    "If I say yes, will  ",
+    "you stop asking?    "
+  }, {
+    "                    ",
+    "Not just no, but    ",
+    "super no.           ",
+    "                    "
+  }, {
+    "                    ",
+    "Yes, but in an      ",
+    "alternate universe. ",
+    "                    "
+  }, {
+    "                    ",
+    "                    ",
+    "My sources say      ",
+    "ask again later.    "
+  }, {
+    "                    ",
+    "                    ",
+    "Signs point to a    ",
+    "hesitant yes.       "
+  }
+};
+
 const int numFortunes = sizeof(FORTUNES) / sizeof(FORTUNES[0]);
